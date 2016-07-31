@@ -20,9 +20,6 @@
     "pouchdb-adapter-websql-core": "^5.4.5",
     "pouchdb-utils": "^5.4.5"
   },
-  "peerDependencies": {
-    "pouchdb-core": "^5.4.5"
-  },
   "devDependencies": {
     "browserify": "^13.1.0",
     "bundle-collapser": "^1.2.1",
