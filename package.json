@@ -1,0 +1,33 @@
+{
+  "name": "pouchdb-adapter-cordova-sqlite",
+  "version": "1.0.0",
+  "description": "PouchDB adapter using Cordova SQLite Plugin as its data store.",
+  "main": "./lib/index.js",
+  "keywords": [],
+  "author": "Dale Harvey <dale@arandomurl.com>",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/nolanlawson/pouchdb-adapter-cordova-sqlite",
+  "files": [
+    "lib", "dist"
+  ],
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "mkdirp dist && browserify -s PouchAdapterCordovaSqlite -p bundle-collapser/plugin . > dist/pouchdb.cordova-sqlite.js && uglifyjs -mc < dist/pouchdb.cordova-sqlite.js > dist/pouchdb.cordova-sqlite.min.js",
+    "test": "standard"
+  },
+  "dependencies": {
+    "js-extend": "1.0.1",
+    "pouchdb-adapter-websql-core": "^5.4.5",
+    "pouchdb-utils": "^5.4.5"
+  },
+  "peerDependencies": {
+    "pouchdb-core": "^5.4.5"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "bundle-collapser": "^1.2.1",
+    "mkdirp": "^0.5.1",
+    "standard": "^7.1.2",
+    "uglify-js": "^2.7.0"
+  }
+}
