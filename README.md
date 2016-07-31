@@ -21,7 +21,7 @@ PouchDB.plugin(require('pouchdb-adapter-cordova-sqlite'));
 var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
 ```
 
-**Not using npm**? Just directly download the bundle file from:
+**Not using npm?** Just directly download the bundle file from:
 
   - [https://npmcdn.com/pouchdb-adapter-cordova-sqlite/dist/pouchdb.cordova-sqlite.js](https://npmcdn.com/pouchdb-adapter-cordova-sqlite/dist/pouchdb-adapter-cordova-sqlite.js)
 
@@ -32,17 +32,9 @@ PouchDB.plugin(PouchAdapterCordovaSqlite);
 var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
 ```
 
+This will create a SQLite database via native Cordova called `mydb.db`.
+
 ### Configuration
-
-This will create a SQLite database via native Cordova (in Android or iOS) called `mydb.db`. If you want to use the
-legacy `_pouch_mydb.db` format (with the `_pouch_` prefix), then do this:
-
-```js
-var cordovaSqlitePlugin = require('pouchdb-adapter-cordova-sqlite');
-cordovaSqlitePlugin.use_prefix = true; // use the legacy '_pouch' prefix
-PouchDB.plugin(cordovaSqlitePlugin);
-var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
-```
 
 You can also pass in any options that are valid for Cordova-sqlite-storage, such as `location`, 
 `androidDatabaseImplementation`, etc.:
@@ -53,4 +45,13 @@ var db = new PouchDB('mydb.db', {
   iosDatabaseLocation: 'Library',
   androidDatabaseImplementation: 2
 });
+```
+
+If you want to use the legacy `_pouch_mydb.db` format (with the `_pouch_` prefix), then do this:
+
+```js
+var PouchAdapterCordovaSqlite = require('pouchdb-adapter-cordova-sqlite');
+cordovaSqlitePlugin.use_prefix = true; // use the legacy '_pouch' prefix
+PouchDB.plugin(PouchAdapterCordovaSqlite);
+var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
 ```
