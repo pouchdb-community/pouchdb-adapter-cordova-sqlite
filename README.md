@@ -23,7 +23,7 @@ var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
 
 **Not using npm?** Just directly download the bundle file from:
 
-  - [https://npmcdn.com/pouchdb-adapter-cordova-sqlite/dist/pouchdb.cordova-sqlite.js](https://npmcdn.com/pouchdb-adapter-cordova-sqlite/dist/pouchdb.cordova-sqlite.js)
+  - [https://unpkg.com/pouchdb-adapter-cordova-sqlite/dist/pouchdb.cordova-sqlite.js](https://unpkg.com/pouchdb-adapter-cordova-sqlite/dist/pouchdb.cordova-sqlite.js)
 
 Then do this:
 
