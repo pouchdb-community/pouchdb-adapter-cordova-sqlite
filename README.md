@@ -34,6 +34,25 @@ var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
 
 This will create a SQLite database via native Cordova called `mydb.db`.
 
+**Note that you will need to do this within the `deviceready` Cordova event**. If you are stuck trying to get this to work, then please refer to the [pouchdb-adapter-cordova-sqlite-demo](https://github.com/nolanlawson/pouchdb-adapter-cordova-sqlite-demo) project which contains a fully working demo that you can try out yourself to see how it should work. The code it adds is simply:
+
+```html
+<script src="js/pouchdb-5.4.5.js"></script>
+<script src="js/pouchdb.cordova-sqlite.js"></script>
+<script>
+  document.addEventListener('deviceready', function () {
+    PouchDB.plugin(PouchAdapterCordovaSqlite);
+    var db = new PouchDB('database.db', {adapter: 'cordova-sqlite'});
+    db.post({}).then(function (res) {
+      return db.get(res.id);
+    }).then(function (doc) {
+      alert('stored a document! ' + JSON.stringify(doc));
+      alert('adapter is: ' + db.adapter);
+    }).catch(console.log.bind(console));
+  });
+</script>
+```
+
 ### Configuration
 
 You can also pass in any options that are valid for Cordova-sqlite-storage, such as `location`, 
