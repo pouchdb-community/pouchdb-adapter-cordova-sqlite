@@ -1,15 +1,17 @@
 pouchdb-adapter-cordova-sqlite
 ======
 
-PouchDB adapter using either [Cordova-sqlite-storage](https://github.com/litehelpers/Cordova-sqlite-storage) or 
-[cordova-plugin-sqlite-2](https://github.com/nolanlawson/cordova-plugin-sqlite-2) or 
-[cordova-plugin-websql](https://github.com/Microsoft/cordova-plugin-websql) as its backing store.
+PouchDB adapter using native Cordova SQLite as its backing store. It works with any one of the following Cordova plugins:
 
-As long as there is a global `cordova.sqlitePlugin` (or `openDatabase`) available, this adapter should work. Its adapter name is `'cordova-sqlite'`.
+- [Cordova-sqlite-storage](https://github.com/litehelpers/Cordova-sqlite-storage)
+- [cordova-plugin-sqlite-2](https://github.com/nolanlawson/cordova-plugin-sqlite-2)
+- [cordova-plugin-websql](https://github.com/Microsoft/cordova-plugin-websql)
+
+This adapter looks for a global `cordova.sqlitePlugin`, falling back to `openDatabase` if available. Its adapter name is `'cordova-sqlite'`.
 
 ### Usage
 
-#### Using npm/Browserify/Webpack/etc.
+#### Via npm/Browserify/Webpack/etc.
 
 Install from npm:
 
@@ -17,7 +19,7 @@ Install from npm:
 npm install pouchdb-adapter-cordova-sqlite
 ```
 
-Then `require()` it and notify PouchDB of the plugin:
+Then `require()` it, notify PouchDB of the plugin, and initialize a database using the `cordova-sqlite` adapter name:
 
 ```js
 PouchDB.plugin(require('pouchdb-adapter-cordova-sqlite'));
@@ -26,13 +28,9 @@ var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
 
 Note this requires a module bundler such as Browserify, Webpack, etc.
 
-#### Direct download
+#### Via script tags
 
-If you're not using npm/Browserify/Webpack/etc., just download the bundle file from:
-
-  - [https://unpkg.com/pouchdb-adapter-cordova-sqlite/dist/pouchdb.cordova-sqlite.js](https://unpkg.com/pouchdb-adapter-cordova-sqlite/dist/pouchdb.cordova-sqlite.js)
-
-Then include it after PouchDB:
+If you're not using npm/Browserify/Webpack/etc., just [download the JavaScript file from unpkg](https://unpkg.com/pouchdb-adapter-cordova-sqlite/dist/pouchdb.cordova-sqlite.js), then include it after PouchDB:
 
 ```html
 <script src="path/to/pouchdb.js"></script>
