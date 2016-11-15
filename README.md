@@ -12,23 +12,39 @@ was confusing, error-prone, and difficult to configure, hence it's been extracte
 
 ### Usage
 
+#### Using npm
+
+Install from npm:
+
 ```bash
 npm install pouchdb-adapter-cordova-sqlite
 ```
+
+Then `require()` it and notify PouchDB of the plugin:
 
 ```js
 PouchDB.plugin(require('pouchdb-adapter-cordova-sqlite'));
 var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
 ```
 
-**Not using npm?** Just directly download the bundle file from:
+Note this requires a module bundler such as Browserify, Webpack, etc.
+
+#### Direct download
+
+If you're not using npm/Browserify/Webpack/etc., just download the bundle file from:
 
   - [https://unpkg.com/pouchdb-adapter-cordova-sqlite/dist/pouchdb.cordova-sqlite.js](https://unpkg.com/pouchdb-adapter-cordova-sqlite/dist/pouchdb.cordova-sqlite.js)
 
-Then do this:
+Then include it after PouchDB:
+
+```html
+<script src="path/to/pouchdb.js"></script
+<script src="path/to/pouchdb.cordova-sqlite.js"></script>
+```
+
+Then initialize it using the `cordova-sqlite` adapter name:
 
 ```js
-PouchDB.plugin(PouchAdapterCordovaSqlite);
 var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
 ```
 
@@ -41,7 +57,6 @@ This will create a SQLite database via native Cordova called `mydb.db`.
 <script src="js/pouchdb.cordova-sqlite.js"></script>
 <script>
   document.addEventListener('deviceready', function () {
-    PouchDB.plugin(PouchAdapterCordovaSqlite);
     var db = new PouchDB('database.db', {adapter: 'cordova-sqlite'});
     db.post({}).then(function (res) {
       return db.get(res.id);
