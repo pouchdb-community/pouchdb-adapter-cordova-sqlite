@@ -89,3 +89,10 @@ cordovaSqlitePlugin.use_prefix = true; // use the legacy '_pouch' prefix
 PouchDB.plugin(PouchAdapterCordovaSqlite);
 var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
 ```
+
+## Changelog
+
+- 2.0.0
+  - Automatically registered the plugin if it detects `window.PouchDB`. This means for people using `<script>` tags, you no longer need to explicitly call `PouchDB.plugin()`.
+- 1.0.0
+  - Initial release
