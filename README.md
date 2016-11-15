@@ -7,12 +7,9 @@ PouchDB adapter using either [Cordova-sqlite-storage](https://github.com/litehel
 
 As long as there is a global `cordova.sqlitePlugin` (or `openDatabase`) available, this adapter should work. Its adapter name is `'cordova-sqlite'`.
 
-_**Note:** Until v6.0.0, PouchDB's regular `websql` adapter supported the Cordova SQLite Plugin automatically. However, we found this
-was confusing, error-prone, and difficult to configure, hence it's been extracted into a separate plugin._
-
 ### Usage
 
-#### Using npm
+#### Using npm/Browserify/Webpack/etc.
 
 Install from npm:
 
@@ -38,7 +35,7 @@ If you're not using npm/Browserify/Webpack/etc., just download the bundle file f
 Then include it after PouchDB:
 
 ```html
-<script src="path/to/pouchdb.js"></script
+<script src="path/to/pouchdb.js"></script>
 <script src="path/to/pouchdb.cordova-sqlite.js"></script>
 ```
 
@@ -89,6 +86,11 @@ cordovaSqlitePlugin.use_prefix = true; // use the legacy '_pouch' prefix
 PouchDB.plugin(PouchAdapterCordovaSqlite);
 var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
 ```
+
+## Historical note
+
+Until PouchDB 6.0.0, PouchDB's regular `websql` adapter supported the Cordova SQLite Plugin automatically. However, the PouchDB team found this
+to be confusing, error-prone, and difficult to configure, which is why it was exacted into a separate plugin. You can read details in [PouchDB's list of breaking changes](https://github.com/pouchdb/pouchdb/wiki/Breaking-changes).
 
 ## Changelog
 
