@@ -24,7 +24,7 @@
     "browserify": "^13.1.0",
     "bundle-collapser": "^1.2.1",
     "mkdirp": "^0.5.1",
-    "standard": "^7.1.2",
+    "standard": "^8.6.0",
     "uglify-js": "^2.7.0"
   }
 }
