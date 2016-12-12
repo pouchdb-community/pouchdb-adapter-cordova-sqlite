@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "pouchdb-adapter-websql-core": "6.0.7",
-    "pouchdb-utils": "6.0.7"
+    "pouchdb-utils": "6.1.0"
   },
   "devDependencies": {
     "browserify": "^13.1.0",
