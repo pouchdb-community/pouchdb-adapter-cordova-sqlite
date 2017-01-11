@@ -88,7 +88,7 @@ var db = new PouchDB('mydb.db', {adapter: 'cordova-sqlite'});
 ## Historical note
 
 Until PouchDB 6.0.0, PouchDB's regular `websql` adapter supported the Cordova SQLite Plugin automatically. However, the PouchDB team found this
-to be confusing, error-prone, and difficult to configure, which is why it was exacted into a separate plugin. You can read details in [PouchDB's list of breaking changes](https://github.com/pouchdb/pouchdb/wiki/Breaking-changes).
+to be confusing, error-prone, and difficult to configure, which is why it was extracted into a separate plugin. You can read details in [PouchDB's list of breaking changes](https://github.com/pouchdb/pouchdb/wiki/Breaking-changes).
 
 ## Changelog
 
