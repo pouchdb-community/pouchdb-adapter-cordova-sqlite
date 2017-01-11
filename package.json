@@ -1,6 +1,6 @@
 {
   "name": "pouchdb-adapter-cordova-sqlite",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "PouchDB adapter using Cordova SQLite Plugin as its data store.",
   "main": "./lib/index.js",
   "keywords": [],
