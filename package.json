@@ -17,7 +17,7 @@
     "test": "standard"
   },
   "dependencies": {
-    "pouchdb-adapter-websql-core": "^6.1.1"
+    "pouchdb-adapter-websql-core": "^6.1.2"
   },
   "devDependencies": {
     "browserify": "^14.0.0",
