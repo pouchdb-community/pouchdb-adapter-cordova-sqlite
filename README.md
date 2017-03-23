@@ -64,7 +64,7 @@ This will create a SQLite database via native Cordova called `mydb.db`.
 
 **Note also that if you don't install a "SQLite plugin," it will fall back to WebSQL**. If you are unsure whether or not a SQLite Plugin is successfully installed, try:
 
-```
+```js
 alert('SQLite plugin is installed?: ' + (!!window.sqlitePlugin));
 ```
 
