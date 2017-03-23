@@ -48,20 +48,27 @@ This will create a SQLite database via native Cordova called `mydb.db`.
 **Note that you will need to do this within the `deviceready` Cordova event**. If you are stuck trying to get this to work, then please refer to the [pouchdb-adapter-cordova-sqlite-demo](https://github.com/nolanlawson/pouchdb-adapter-cordova-sqlite-demo) project which contains a fully working demo that you can try out yourself to see how it should work. The code it adds is simply:
 
 ```html
-<script src="js/pouchdb-5.4.5.js"></script>
-<script src="js/pouchdb.cordova-sqlite.js"></script>
+<script src="js/pouchdb-6.1.2.js"></script>
+<script src="js/pouchdb.cordova-sqlite-2.0.2.js"></script>
 <script>
   document.addEventListener('deviceready', function () {
     var db = new PouchDB('database.db', {adapter: 'cordova-sqlite'});
     db.post({}).then(function (res) {
       return db.get(res.id);
     }).then(function (doc) {
-      alert('stored a document! ' + JSON.stringify(doc));
-      alert('adapter is: ' + db.adapter);
+      /* etc. */
     }).catch(console.log.bind(console));
   });
 </script>
 ```
+
+**Note also that if you don't install a "SQLite plugin," it will fall back to WebSQL**. If you are unsure whether or not a SQLite Plugin is successfully installed, try:
+
+```
+alert('SQLite plugin is installed?: ' + (!!window.sqlitePlugin));
+```
+
+The reason it falls back to WebSQL is that `cordova-plugin-websql` adds a global `openDatabase` instead of a global `cordova.sqlitePlugin`. This adapter prefers `cordova.sqlitePlugin` but falls back to `openDatabase`.
 
 ### Configuration
 
