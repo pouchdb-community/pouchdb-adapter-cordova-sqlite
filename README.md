@@ -1,6 +1,8 @@
 pouchdb-adapter-cordova-sqlite
 ======
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pouchdb-community/pouchdb-adapter-cordova-sqlite.svg)](https://greenkeeper.io/)
+
 PouchDB adapter using native Cordova SQLite as its backing store. It works with any one of the following Cordova plugins:
 
 - [Cordova-sqlite-storage](https://github.com/litehelpers/Cordova-sqlite-storage)
